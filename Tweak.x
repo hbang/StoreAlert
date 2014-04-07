@@ -14,8 +14,9 @@ void HBSAOverrideOpenURL(NSURL *url) {
 }
 
 BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
-	if (!override && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"]) {
-		SBApplication *sourceApp = sender ? [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:sender] : ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
+	SBApplication *sourceApp = sender ? [[%c(SBApplicationController) sharedInstance] applicationWithDisplayIdentifier:sender] : ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
+
+	if (!override && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"] && ![sender isEqualToString:sourceApp.bundleIdentifier]) {
 
 		HBSAStorePermissionAlertItem *alert = [[[HBSAStorePermissionAlertItem alloc] initWithURL:url sourceDisplayName:sourceApp.displayName destinationDisplayName:display.displayName] autorelease];
 		[(SBAlertItemsController *)[%c(SBAlertItemsController) sharedInstance] activateAlertItem:alert];
