@@ -69,6 +69,16 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 
 %end
 
+%group JonyIvePointOne
+
+- (void)_openURLCore:(NSURL *)url (SBApplication *)display animating:(BOOL)animate sender:(NSString *)sender activationContext:(id)context activationHandler:(id)handler {
+	if (HBSAOpenURL(url, display, sender)) {
+		%orig;
+	}
+}
+
+%end
+
 %group CraigFederighi
 
 - (void)_openURLCore:(NSURL *)url display:(SBApplication *)display animating:(BOOL)animating sender:(NSString *)sender activationSettings:(id)settings withResult:(id)result {
@@ -86,6 +96,8 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 
 	if (IS_IOS_OR_NEWER(iOS_8_0)) {
 		%init(CraigFederighi);
+	} else if (IS_IOS_OR_NEWER(iOS_7_1)) {
+		%init(JonyIvePointOne);
 	} else if (IS_IOS_OR_NEWER(iOS_7_0)) {
 		%init(JonyIve);
 	} else if (IS_IOS_OR_NEWER(iOS_6_0)) {
