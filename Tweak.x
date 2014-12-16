@@ -71,7 +71,7 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 
 %group JonyIvePointOne
 
-- (void)_openURLCore:(NSURL *)url (SBApplication *)display animating:(BOOL)animate sender:(NSString *)sender activationContext:(id)context activationHandler:(id)handler {
+- (void)_openURLCore:(NSURL *)url display:(SBApplication *)display animating:(BOOL)animate sender:(NSString *)sender activationContext:(id)context activationHandler:(id)handler {
 	if (HBSAOpenURL(url, display, sender)) {
 		%orig;
 	}

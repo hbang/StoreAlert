@@ -1,7 +1,7 @@
 Package: ws.hbang.storealert
 Name: StoreAlert
 Depends: mobilesubstrate
-Version: 1.0.1
+Version: 1.0.2
 Architecture: iphoneos-arm
 Description: Ask before opening iTunes/App Store
 Maintainer: HASHBANG Productions <support@hbang.ws>
