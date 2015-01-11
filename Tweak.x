@@ -22,11 +22,6 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 		sourceApp = ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
 	}
 
-	NSLog(@"override %i",override);
-	NSLog(@"matches scheme %i",[@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme]);
-	NSLog(@"matches host %i",[url.host isEqualToString:@"itunes.apple.com"]);
-	NSLog(@"%@ == %@ == %i",sender,sourceApp.bundleIdentifier,[sender isEqualToString:display.bundleIdentifier]);
-
 	if (!override && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"] && ![sender isEqualToString:display.bundleIdentifier]) {
 		HBSAStorePermissionAlertItem *alert = [[[HBSAStorePermissionAlertItem alloc] initWithURL:url sourceDisplayName:sourceApp.displayName destinationDisplayName:display.displayName] autorelease];
 		[(SBAlertItemsController *)[%c(SBAlertItemsController) sharedInstance] activateAlertItem:alert];
