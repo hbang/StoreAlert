@@ -1,3 +1,4 @@
+#import "Global.h"
 #import "HBSAStorePermissionAlertItem.h"
 #import <SpringBoard/SpringBoard.h>
 #import <SpringBoard/SBApplication.h>
@@ -7,6 +8,7 @@
 #import <UIKit/UIViewController+Private.h>
 
 void HBSAOverrideOpenURL(NSURL *url);
+extern HBPreferences *preferences;
 
 @interface HBSAStorePermissionAlertItem () {
 	NSURL *_url;
@@ -37,6 +39,10 @@ void HBSAOverrideOpenURL(NSURL *url);
 
 	self.alertSheet.delegate = self;
 	self.alertSheet.title = [NSString stringWithFormat:@"“%@” Would Like To Open “%@”", _sourceDisplayName, _destinationDisplayName];
+
+	if ([preferences boolForKey:kHBSAShowURLKey]) {
+		self.alertSheet.message = _url.absoluteString;
+	}
 
 	[self.alertSheet addButtonWithTitle:@"Cancel"];
 	[self.alertSheet addButtonWithTitle:@"Open"];

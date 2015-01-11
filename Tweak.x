@@ -1,3 +1,5 @@
+#define _STOREALERT_TWEAK_X
+#import "Global.h"
 #import "HBSAStorePermissionAlertItem.h"
 #import <SpringBoard/SpringBoard.h>
 #import <SpringBoard/SBAlertItemsController.h>
@@ -5,6 +7,7 @@
 #import <SpringBoard/SBApplicationController.h>
 #import <version.h>
 
+HBPreferences *preferences;
 BOOL override = NO;
 
 void HBSAOverrideOpenURL(NSURL *url) {
@@ -22,7 +25,7 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 		sourceApp = ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
 	}
 
-	if (!override && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"] && ![sender isEqualToString:display.bundleIdentifier]) {
+	if (!override && [preferences boolForKey:kHBSAEnabledKey] && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"] && ![sourceApp.bundleIdentifier isEqualToString:display.bundleIdentifier] && ![preferences boolForKey:[@"DisplayIn-" stringByAppendingString:sourceApp.bundleIdentifier]]) {
 		HBSAStorePermissionAlertItem *alert = [[[HBSAStorePermissionAlertItem alloc] initWithURL:url sourceDisplayName:sourceApp.displayName destinationDisplayName:display.displayName] autorelease];
 		[(SBAlertItemsController *)[%c(SBAlertItemsController) sharedInstance] activateAlertItem:alert];
 
@@ -31,6 +34,8 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 
 	return YES;
 }
+
+#pragma mark - Hooks
 
 %hook SpringBoard
 
@@ -86,8 +91,24 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 
 %end
 
+#pragma mark - Constructor
+
 %ctor {
 	%init;
+
+	preferences = [[HBPreferences alloc] initWithIdentifier:@"ws.hbang.storealert"];
+	[preferences registerDefaults:@{
+		kHBSAEnabledKey: @YES,
+		kHBSAShowURLKey: @YES
+	}];
+
+	for (NSString *app in @[ @"com.saurik.Cydia", @"com.tapbots.Tweetbot", @"com.tapbots.TweetbotPad", @"com.tapbots.Tweetbot3" ]) {
+		NSString *key = [@"DisplayIn-" stringByAppendingString:app];
+
+		if (![preferences objectForKey:key]) {
+			[preferences setBool:NO forKey:key];
+		}
+	}
 
 	if (IS_IOS_OR_NEWER(iOS_8_0)) {
 		%init(CraigFederighi);
