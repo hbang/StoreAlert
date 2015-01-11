@@ -24,7 +24,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Turn off StoreAlert for apps you trust.</string>
+			<string>Turn off StoreAlert for apps you trust, or that show their own App Store confirmation.</string>
 		</dict>
 		<dict>
 			<key>cell</key>
