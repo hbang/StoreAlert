@@ -18,13 +18,13 @@
 			<key>key</key>
 			<string>Enabled</string>
 			<key>label</key>
-			<string>Enabled</string>
+			<string>ENABLED</string>
 		</dict>
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>Turn off StoreAlert for apps you trust, or that show their own App Store confirmation.</string>
+			<string>DISPLAY_IN_EXPLANATION</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -36,7 +36,7 @@
 			<key>key</key>
 			<string>ShowURL</string>
 			<key>label</key>
-			<string>Show URL in Alert</string>
+			<string>SHOW_URL</string>
 		</dict>
 		<dict>
 			<key>ALAllowsSelection</key>
@@ -58,7 +58,7 @@
 			<key>isController</key>
 			<true/>
 			<key>label</key>
-			<string>Display In</string>
+			<string>DISPLAY_IN</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -72,7 +72,7 @@
 			<key>isController</key>
 			<true/>
 			<key>label</key>
-			<string>About</string>
+			<string>ABOUT</string>
 		</dict>
 	</array>
 	<key>title</key>

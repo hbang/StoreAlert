@@ -10,6 +10,8 @@
 void HBSAOverrideOpenURL(NSURL *url);
 extern HBPreferences *preferences;
 
+NSBundle *bundle;
+
 @interface HBSAStorePermissionAlertItem () {
 	NSURL *_url;
 	NSString *_sourceDisplayName;
@@ -24,9 +26,18 @@ extern HBPreferences *preferences;
 	self = [self init];
 
 	if (self) {
+		static dispatch_once_t onceToken;
+		dispatch_once(&onceToken, ^{
+			bundle = [[NSBundle bundleWithPath:@"/Library/PreferenceBundles/StoreAlert.bundle"] retain];
+		});
+
 		_url = [url copy];
 		_sourceDisplayName = [sourceDisplayName copy];
 		_destinationDisplayName = [destinationDisplayName copy];
+
+		if (!_sourceDisplayName) {
+			_sourceDisplayName = NSLocalizedStringFromTableInBundle(@"UNKNOWN_APP", @"Localizable", bundle, @"Name used when the app can’t be determined.");
+		}
 	}
 
 	return self;
@@ -37,23 +48,29 @@ extern HBPreferences *preferences;
 - (void)configure:(BOOL)configure requirePasscodeForActions:(BOOL)requirePasscode {
 	[super configure:configure requirePasscodeForActions:requirePasscode];
 
+	static NSBundle *UIKitBundle;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		UIKitBundle = [[NSBundle bundleForClass:UIView.class] retain];
+	});
+
 	self.alertSheet.delegate = self;
-	self.alertSheet.title = [NSString stringWithFormat:@"“%@” Would Like To Open “%@”", _sourceDisplayName, _destinationDisplayName];
+	self.alertSheet.title = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"APP_WANTS_TO_OPEN_APP", @"Localizable", bundle, @"Message displayed in the alert, informing the user of the source and destination app."), _sourceDisplayName, _destinationDisplayName];
 
 	if ([preferences boolForKey:kHBSAShowURLKey]) {
 		self.alertSheet.message = _url.absoluteString;
 	}
 
-	[self.alertSheet addButtonWithTitle:@"Cancel"];
-	[self.alertSheet addButtonWithTitle:@"Open"];
+	[self.alertSheet addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Open Link", @"Localizable", UIKitBundle, nil)];
+	[self.alertSheet addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"Localizable", UIKitBundle, nil)];
 
-	self.alertSheet.cancelButtonIndex = 0;
+	self.alertSheet.cancelButtonIndex = 1;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)index {
 	[self dismiss];
 
-	if (index != 1) {
+	if (index != 0) {
 		return;
 	}
 
