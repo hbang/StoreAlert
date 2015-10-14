@@ -25,7 +25,7 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 		sourceApp = ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
 	}
 
-	if (!override && [preferences boolForKey:kHBSAEnabledKey] && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"] && ![sourceApp.bundleIdentifier isEqualToString:display.bundleIdentifier] && [preferences boolForKey:[@"DisplayIn-" stringByAppendingString:sourceApp.bundleIdentifier] default:YES]) {
+	if (!override && [preferences boolForKey:kHBSAEnabledKey] && [@[ @"itms", @"itmss", @"itms-apps", @"itms-appss", @"http", @"https" ] containsObject:url.scheme] && [url.host isEqualToString:@"itunes.apple.com"] && ![sourceApp.bundleIdentifier isEqualToString:display.bundleIdentifier] && [preferences boolForKey:[@"DisplayIn-" stringByAppendingString:sourceApp.bundleIdentifier ?: @"Fallback"] default:YES]) {
 		HBSAStorePermissionAlertItem *alert = [[[HBSAStorePermissionAlertItem alloc] initWithURL:url sourceDisplayName:sourceApp.displayName destinationDisplayName:display.displayName] autorelease];
 		[(SBAlertItemsController *)[%c(SBAlertItemsController) sharedInstance] activateAlertItem:alert];
 
