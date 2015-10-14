@@ -1,7 +1,4 @@
-TARGET = :clang::5.0
-ARCHS = armv7 arm64
-
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = StoreAlert
 StoreAlert_FILES = Tweak.x HBSAStorePermissionAlertItem.m
