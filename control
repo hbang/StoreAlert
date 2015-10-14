@@ -1,10 +1,10 @@
 Package: ws.hbang.storealert
 Name: StoreAlert
 Depends: mobilesubstrate, ws.hbang.common (>= 1.2), applist
-Version: 1.1
+Version: 1.1.1
 Architecture: iphoneos-arm
 Description: Prompt before opening the App Store
 Maintainer: HASHBANG Productions <support@hbang.ws>
 Author: HASHBANG Productions <support@hbang.ws>
-Support: https://www.hbang.ws/faq
+Support: https://www.hbang.ws/faq/
 Section: Tweaks
