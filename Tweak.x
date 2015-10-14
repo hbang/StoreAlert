@@ -5,6 +5,7 @@
 #import <SpringBoard/SBAlertItemsController.h>
 #import <SpringBoard/SBApplication.h>
 #import <SpringBoard/SBApplicationController.h>
+#import <UIKit/NSURL+UIKitAdditions.h>
 #import <version.h>
 
 HBPreferences *preferences;
