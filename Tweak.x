@@ -28,9 +28,10 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 		sourceApp = ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
 	}
 
-	// allow to go through if this is an override, the tweak is disabled, or the
-	// source and destination are the same app
-	if (override || ![preferences boolForKey:kHBSAEnabledKey] || ![sourceApp.bundleIdentifier isEqualToString:display.bundleIdentifier]) {
+	// allow to go through if this is an override, the tweak is disabled, the
+	// source and destination are the same app, or the source is the in-app
+	// product view controller (SKStoreProductViewController)
+	if (override || ![preferences boolForKey:kHBSAEnabledKey] || [sourceApp.bundleIdentifier isEqualToString:display.bundleIdentifier] || [sourceApp.bundleIdentifier isEqualToString:@"com.apple.ios.StoreKitUIService"]) {
 		return YES;
 	}
 
