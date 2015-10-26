@@ -36,7 +36,7 @@ extern HBPreferences *preferences;
 		_destinationDisplayName = [destinationDisplayName copy];
 
 		if (!_sourceDisplayName) {
-			_sourceDisplayName = NSLocalizedStringFromTableInBundle(@"UNKNOWN_APP", @"Localizable", bundle, @"Name used when the app can’t be determined.");
+			_sourceDisplayName = NSLocalizedStringFromTableInBundle(@"UNKNOWN_APP", @"Localizable", _bundle, @"Name used when the app can’t be determined.");
 		}
 	}
 
@@ -49,7 +49,7 @@ extern HBPreferences *preferences;
 	[super configure:configure requirePasscodeForActions:requirePasscode];
 
 	self.alertSheet.delegate = self;
-	self.alertSheet.title = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"APP_WANTS_TO_OPEN_APP", @"Localizable", bundle, @"Message displayed in the alert, informing the user of the source and destination app."), _sourceDisplayName, _destinationDisplayName];
+	self.alertSheet.title = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"APP_WANTS_TO_OPEN_APP", @"Localizable", _bundle, @"Message displayed in the alert, informing the user of the source and destination app."), _sourceDisplayName, _destinationDisplayName];
 
 	// if the user wants to see the URL in the alert, make it the message text
 	if ([preferences boolForKey:kHBSAShowURLKey]) {
