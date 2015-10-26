@@ -7,12 +7,12 @@
 #import <UIKit/UIAlertView+Private.h>
 #import <UIKit/UIViewController+Private.h>
 
-void HBSAOverrideOpenURL(NSURL *url);
 extern HBPreferences *preferences;
 
-NSBundle *bundle;
-
 @interface HBSAStorePermissionAlertItem () {
+	NSBundle *_bundle;
+	NSBundle *_uikitBundle;
+
 	NSURL *_url;
 	NSString *_sourceDisplayName;
 	NSString *_destinationDisplayName;
@@ -26,10 +26,10 @@ NSBundle *bundle;
 	self = [self init];
 
 	if (self) {
-		static dispatch_once_t onceToken;
-		dispatch_once(&onceToken, ^{
-			bundle = [[NSBundle bundleWithPath:@"/Library/PreferenceBundles/StoreAlert.bundle"] retain];
-		});
+		// we need StoreAlert.bundle and UIKit's bundle, so we can get
+		// localizations from it
+		_bundle = [[NSBundle bundleWithPath:@"/Library/PreferenceBundles/StoreAlert.bundle"] retain];
+		_uikitBundle = [[NSBundle bundleForClass:UIView.class] retain];
 
 		_url = [url copy];
 		_sourceDisplayName = [sourceDisplayName copy];
@@ -48,21 +48,17 @@ NSBundle *bundle;
 - (void)configure:(BOOL)configure requirePasscodeForActions:(BOOL)requirePasscode {
 	[super configure:configure requirePasscodeForActions:requirePasscode];
 
-	static NSBundle *UIKitBundle;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		UIKitBundle = [[NSBundle bundleForClass:UIView.class] retain];
-	});
-
 	self.alertSheet.delegate = self;
 	self.alertSheet.title = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"APP_WANTS_TO_OPEN_APP", @"Localizable", bundle, @"Message displayed in the alert, informing the user of the source and destination app."), _sourceDisplayName, _destinationDisplayName];
 
+	// if the user wants to see the URL in the alert, make it the message text
 	if ([preferences boolForKey:kHBSAShowURLKey]) {
 		self.alertSheet.message = _url.absoluteString;
 	}
 
-	[self.alertSheet addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Open Link", @"Localizable", UIKitBundle, nil)];
-	[self.alertSheet addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"Localizable", UIKitBundle, nil)];
+	// stealing some strings from UIKit for the buttons
+	[self.alertSheet addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Open Link", @"Localizable", _uikitBundle, nil)];
+	[self.alertSheet addButtonWithTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"Localizable", _uikitBundle, nil)];
 
 	self.alertSheet.cancelButtonIndex = 1;
 }
@@ -70,19 +66,22 @@ NSBundle *bundle;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)index {
 	[self dismiss];
 
-	if (index != 0) {
-		return;
-	}
-
-	HBSAOverrideOpenURL(_url);
+	// pass back the result to the completion handler. the open button is at
+	// index 0
+	_completion(index == 0);
 }
 
 #pragma mark - Memory management
 
 - (void)dealloc {
+	[_bundle release];
+	[_uikitBundle release];
+
 	[_url release];
 	[_sourceDisplayName release];
 	[_destinationDisplayName release];
+
+	[_completion release];
 
 	[super dealloc];
 }

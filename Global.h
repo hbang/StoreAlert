@@ -6,3 +6,5 @@ extern HBPreferences *preferences;
 
 static NSString *const kHBSAEnabledKey = @"Enabled";
 static NSString *const kHBSAShowURLKey = @"ShowURL";
+
+typedef void (^HBSAOpenURLCompletion)(BOOL allowed);

@@ -9,16 +9,19 @@
 #import <version.h>
 
 HBPreferences *preferences;
-BOOL override = NO;
 
-void HBSAOverrideOpenURL(NSURL *url) {
-	override = YES;
-	[[UIApplication sharedApplication] openURL:url];
-	override = NO;
-}
+@interface SpringBoard ()
 
-BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
-	SBApplication *sourceApp;
+- (void)_storealert_applicationOpenURL:(NSURL *)url withApplication:(SBApplication *)application sender:(NSString *)sender completion:(HBSAOpenURLCompletion)completion;
+
+@end
+
+#pragma mark - Hooks
+
+%hook SpringBoard
+
+%new - (void)_storealert_applicationOpenURL:(NSURL *)url withApplication:(SBApplication *)application sender:(NSString *)sender completion:(HBSAOpenURLCompletion)completion {
+	SBApplication *sourceApp = nil;
 
 	if (sender) {
 		// get the SBApplication with the sender bundle id
@@ -28,78 +31,87 @@ BOOL HBSAOpenURL(NSURL *url, SBApplication *display, NSString *sender) {
 		sourceApp = ((SpringBoard *)[UIApplication sharedApplication])._accessibilityFrontMostApplication;
 	}
 
-	// allow to go through if this is an override, the tweak is disabled, the
-	// source and destination are the same app, or the source is the in-app
-	// product view controller (SKStoreProductViewController)
-	if (override || ![preferences boolForKey:kHBSAEnabledKey] || [sourceApp.bundleIdentifier isEqualToString:display.bundleIdentifier] || [sourceApp.bundleIdentifier isEqualToString:@"com.apple.ios.StoreKitUIService"]) {
-		return YES;
+	// allow to go through if the tweak is disabled, the source and destination
+	// are the same app, or the source is the in-app product view controller
+	// (SKStoreProductViewController)
+	if (![preferences boolForKey:kHBSAEnabledKey] || [sourceApp.bundleIdentifier isEqualToString:application.bundleIdentifier] || [sourceApp.bundleIdentifier isEqualToString:@"com.apple.ios.StoreKitUIService"]) {
+		completion(YES);
 	}
 
 	// if itmsURL != nil (confirms it’ll open the store), or it's an itms*://
 	// url, and the app isn’t whitelisted, show the alert
 	if ((url.itmsURL || [url.scheme hasPrefix:@"itms"]) && [preferences boolForKey:[@"DisplayIn-" stringByAppendingString:sourceApp.bundleIdentifier ?: @"Fallback"] default:YES]) {
-		HBSAStorePermissionAlertItem *alert = [[[HBSAStorePermissionAlertItem alloc] initWithURL:url sourceDisplayName:sourceApp.displayName destinationDisplayName:display.displayName] autorelease];
+		HBSAStorePermissionAlertItem *alert = [[[HBSAStorePermissionAlertItem alloc] initWithURL:url sourceDisplayName:sourceApp.displayName destinationDisplayName:application.displayName] autorelease];
+		alert.completion = completion;
 		[(SBAlertItemsController *)[%c(SBAlertItemsController) sharedInstance] activateAlertItem:alert];
 
-		return NO;
+		return;
 	}
 
 	// otherwise, let the open operation go through
-	return YES;
+	completion(YES);
 }
 
-#pragma mark - Hooks
+%group CraigFederighi // 8.0 – 9.0 (wow, streak!)
+- (void)applicationOpenURL:(NSURL *)url withApplication:(SBApplication *)application sender:(NSString *)sender publicURLsOnly:(BOOL)publicURLsOnly animating:(BOOL)animating needsPermission:(BOOL)needsPermission activationSettings:(id)activationSettings withResult:(id)result {
+	__block id newResult = [result copy];
 
-%hook SpringBoard
+	[self _storealert_applicationOpenURL:url withApplication:application sender:sender completion:^(BOOL allowed) {
+		if (allowed) {
+			%orig(url, application, sender, publicURLsOnly, animating, needsPermission, activationSettings, newResult);
+		}
 
-%group SteveJobs
-
-- (void)_openURLCore:(NSURL *)url display:(SBApplication *)display publicURLsOnly:(BOOL)publicOnly animating:(BOOL)animate additionalActivationFlag:(NSUInteger)flags {
-	if (HBSAOpenURL(url, display, nil)) {
-		%orig;
-	}
+		[newResult release];
+	}];
 }
-
 %end
 
-%group ScottForstall
+%group JonyIvePointOne // 7.1
+- (void)applicationOpenURL:(NSURL *)url withApplication:(SBApplication *)application sender:(NSString *)sender publicURLsOnly:(BOOL)publicURLsOnly animating:(BOOL)animating needsPermission:(BOOL)needsPermission activationContext:(id)context activationHandler:(id)handler {
+	__block id newHandler = [handler copy];
 
-- (void)_openURLCore:(NSURL *)url display:(SBApplication *)display animating:(BOOL)animate sender:(NSString *)sender additionalActivationFlags:(id)flags {
-	if (HBSAOpenURL(url, display, sender)) {
-		%orig;
-	}
+	[self _storealert_applicationOpenURL:url withApplication:application sender:sender completion:^(BOOL allowed) {
+		if (allowed) {
+			%orig(url, application, sender, publicURLsOnly, animating, needsPermission, context, newHandler);
+		}
+
+		[newHandler release];
+	}];
 }
-
 %end
 
-%group JonyIve
+%group JonyIve // 7.0
+- (void)applicationOpenURL:(NSURL *)url withApplication:(SBApplication *)application sender:(NSString *)sender publicURLsOnly:(BOOL)publicURLsOnly animating:(BOOL)animating needsPermission:(BOOL)needsPermission additionalActivationFlags:(id)flags activationHandler:(id)handler {
+	__block id newHandler = [handler copy];
 
-- (void)_openURLCore:(NSURL *)url display:(SBApplication *)display animating:(BOOL)animate sender:(NSString *)sender additionalActivationFlags:(id)flags activationHandler:(id)handler {
-	if (HBSAOpenURL(url, display, sender)) {
-		%orig;
-	}
+	[self _storealert_applicationOpenURL:url withApplication:application sender:sender completion:^(BOOL allowed) {
+		if (allowed) {
+			%orig(url, application, sender, publicURLsOnly, animating, needsPermission, flags, newHandler);
+		}
+
+		[newHandler release];
+	}];
 }
-
 %end
 
-%group JonyIvePointOne
-
-- (void)_openURLCore:(NSURL *)url display:(SBApplication *)display animating:(BOOL)animate sender:(NSString *)sender activationContext:(id)context activationHandler:(id)handler {
-	if (HBSAOpenURL(url, display, sender)) {
-		%orig;
-	}
+%group ScottForstall // 6.0 – 6.1
+- (void)applicationOpenURL:(NSURL *)url withApplication:(SBApplication *)application sender:(NSString *)sender publicURLsOnly:(BOOL)publicURLsOnly animating:(BOOL)animating needsPermission:(BOOL)needsPermission additionalActivationFlags:(id)flags {
+	[self _storealert_applicationOpenURL:url withApplication:application sender:sender completion:^(BOOL allowed) {
+		if (allowed) {
+			%orig;
+		}
+	}];
 }
-
 %end
 
-%group CraigFederighi
-
-- (void)_openURLCore:(NSURL *)url display:(SBApplication *)display animating:(BOOL)animating sender:(NSString *)sender activationSettings:(id)settings withResult:(id)result {
-	if (HBSAOpenURL(url, display, sender)) {
-		%orig;
-	}
+%group SteveJobs // 5.0 – 5.1
+- (void)applicationOpenURL:(NSURL *)url publicURLsOnly:(BOOL)publicURLsOnly animating:(BOOL)animating sender:(NSString *)sender additionalActivationFlag:(unsigned)flag {
+	[self _storealert_applicationOpenURL:url withApplication:nil sender:sender completion:^(BOOL allowed) {
+		if (allowed) {
+			%orig;
+		}
+	}];
 }
-
 %end
 
 %end
