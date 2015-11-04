@@ -70,11 +70,31 @@
 			<key>cellClass</key>
 			<string>HBTwitterCell</string>
 			<key>initials</key>
+			<string>AR</string>
+			<key>label</key>
+			<string>MiRO</string>
+			<key>user</key>
+			<string>MiRO92</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
 			<string>DE</string>
 			<key>label</key>
 			<string>Benno Krauss</string>
 			<key>user</key>
 			<string>bensge</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
+			<string>FI</string>
+			<key>label</key>
+			<string>Arto Mikola</string>
+			<key>user</key>
+			<string>ard0u</string>
 		</dict>
 		<dict>
 			<key>cellClass</key>
