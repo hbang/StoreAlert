@@ -110,6 +110,16 @@
 			<key>cellClass</key>
 			<string>HBTwitterCell</string>
 			<key>initials</key>
+			<string>TR</string>
+			<key>label</key>
+			<string>MUS'AB</string>
+			<key>user</key>
+			<string>MusabEnesDost</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
 			<string>ZH</string>
 			<key>label</key>
 			<string>ZGMF-X20A</string>
