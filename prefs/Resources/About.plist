@@ -64,6 +64,52 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
+			<string>TRANSLATORS</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
+			<string>DE</string>
+			<key>label</key>
+			<string>Benno Krauss</string>
+			<key>user</key>
+			<string>bensge</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
+			<string>FR</string>
+			<key>label</key>
+			<string>Hautebas Mathieu</string>
+			<key>user</key>
+			<string>matteyeux</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
+			<string>NL</string>
+			<key>label</key>
+			<string>Timon Olsthoorn</string>
+			<key>user</key>
+			<string>tmnlsthrn</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
+			<string>ZH</string>
+			<key>label</key>
+			<string>ZGMF-X20A</string>
+			<key>user</key>
+			<string>zmfg_x20a</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
 			<string>EMAIL_SUPPORT_HEADER</string>
 		</dict>
 		<dict>

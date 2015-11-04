@@ -1,0 +1,13 @@
+/*Credit for these translations go to */
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Cancel</key>
+	<string>Nein</string>
+	<key>Open</key>
+	<string>Öffnen</string>
+	<key>Would Like To Open App Store</key>
+	<string>Zum App Store Weiterleiten...</string>
+</dict>
+</plist>

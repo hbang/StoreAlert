@@ -4,22 +4,22 @@
 <dict>
 	<!-- Label for switch to enable or disable the tweak. -->
 	<key>ENABLED</key>
-	<string>Ingeschakeld</string>
+	<string>啟用</string>
 
 	<!-- Label for switch to enable or disable displaying the URL in the alert. -->
 	<key>SHOW_URL</key>
-	<string>Toon URL in melding</string>
+	<string>在警告中顯示 URL</string>
 
 	<!-- Button leading to a list of apps to enable or disable showing the alert within. -->
 	<key>DISPLAY_IN</key>
-	<string>Toon in</string>
+	<string>顯示在</string>
 
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>Zet StoreAlert uit voor de apps die je vertrouwt, of die hun eigen App Store-bevestiging tonen.</string>
+	<string>對信任的 App 關閉 StoreAlert，或者在 App 商店顯示確認。</string>
 
 	<!-- Button leading to the About page. -->
 	<key>ABOUT</key>
-	<string>Over</string>
+	<string>關於</string>
 </dict>
 </plist>

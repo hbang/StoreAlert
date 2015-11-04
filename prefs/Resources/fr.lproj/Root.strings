@@ -4,22 +4,24 @@
 <dict>
 	<!-- Label for switch to enable or disable the tweak. -->
 	<key>ENABLED</key>
-	<string>Ingeschakeld</string>
+	<string>Activé</string>
 
 	<!-- Label for switch to enable or disable displaying the URL in the alert. -->
 	<key>SHOW_URL</key>
-	<string>Toon URL in melding</string>
+	<string>Afficher l'url dans l'alerte</string>
 
 	<!-- Button leading to a list of apps to enable or disable showing the alert within. -->
 	<key>DISPLAY_IN</key>
-	<string>Toon in</string>
+	<string>Afficher dans</string>
 
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>Zet StoreAlert uit voor de apps die je vertrouwt, of die hun eigen App Store-bevestiging tonen.</string>
+	<string>Désactiver les alertes du store pour les apps auquelles vous faites confiance, ou cela affichera les demandes pour chaques apps de l'App Store.</string>
 
 	<!-- Button leading to the About page. -->
 	<key>ABOUT</key>
-	<string>Over</string>
+	<string>A propos</string>
 </dict>
 </plist>
+
+
