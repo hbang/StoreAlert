@@ -8,6 +8,6 @@
 
 	<!-- Name used when the app can’t be determined. -->
 	<key>UNKNOWN_APP</key>
-	<string>(Inconnue)</string>
+	<string>(Inconnu)</string>
 </dict>
 </plist>

@@ -16,11 +16,11 @@
 
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>Désactiver les alertes du store pour les apps auquelles vous faites confiance, ou cela affichera les demandes pour chaques apps de l'App Store.</string>
+	<string>Désactiver StoreAlert pour les applis auxquelles vous faites confiance ou qui affichent leur propre confirmation d'ouverture vers l'App Store.</string>
 
 	<!-- Button leading to the About page. -->
 	<key>ABOUT</key>
-	<string>A propos</string>
+	<string>À propos</string>
 </dict>
 </plist>
 
