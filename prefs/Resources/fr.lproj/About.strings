@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Headings for the credits. -->
+	<key>DEVELOPER</key>
+	<string>Développeur</string>
+	<key>ICON</key>
+	<string>Icône</string>
+
+	<!-- Title above the email support button. -->
+	<key>EMAIL_SUPPORT_HEADER</key>
+	<string>Des problèmes ?</string>
+
+	<!-- Button leading to a contact form. -->
+	<key>EMAIL_SUPPORT</key>
+	<string>Aide par email</string>
+
+	<!-- Button leading to a donation page. -->
+	<key>DONATE</key>
+	<string>Faire un don</string>
+
+	<!-- Footer under the donate button. -->
+	<key>DONATE_FOOTER</key>
+	<string>Ne manquez pas d'exprimer votre reconnaissance en effectuant un don.</string>
+</dict>
+</plist>
