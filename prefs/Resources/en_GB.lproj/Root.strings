@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Turn off StoreAlert for apps you trust, or that show their own App Store confirmation.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>About</string>
 </dict>
 </plist>

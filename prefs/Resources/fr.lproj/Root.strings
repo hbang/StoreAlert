@@ -17,11 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Désactiver StoreAlert pour les applis auxquelles vous faites confiance ou qui affichent leur propre confirmation d'ouverture vers l'App Store.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>À propos</string>
 </dict>
 </plist>
-
-

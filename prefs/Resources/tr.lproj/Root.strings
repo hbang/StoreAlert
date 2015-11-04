@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Güvendiğiniz uygulamalar için StoreAlert'i kapatabilir ya da varsayılan onay stili gösterilir.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>Hakkında</string>
 </dict>
 </plist>

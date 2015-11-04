@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Zet StoreAlert uit voor de apps die je vertrouwt, of die hun eigen App Store-bevestiging tonen.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>Over</string>
 </dict>
 </plist>

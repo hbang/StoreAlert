@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Wyłącz StoreAlert dla zaufanych aplikacji lub tych, które posiadają własne potwierdzenia w App Store.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>Informacje</string>
 </dict>
 </plist>

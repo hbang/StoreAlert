@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>對信任的 App 關閉 StoreAlert，或者在 App 商店顯示確認。</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>關於</string>
 </dict>
 </plist>
