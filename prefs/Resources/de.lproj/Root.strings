@@ -16,7 +16,7 @@
 
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>Schalte StoreAlert für Apps denen du vertraust oder welche selbst Bestätigung erfragen aus.</string>
+	<string>Deaktiviere StoreAlert für Apps, denen du vertraust oder die eigene App Store Bestätigungen anzeigen.</string>
 
 	<!-- Button leading to the About page. -->
 	<key>ABOUT</key>
