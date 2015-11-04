@@ -100,6 +100,16 @@
 			<key>cellClass</key>
 			<string>HBTwitterCell</string>
 			<key>initials</key>
+			<string>PL</string>
+			<key>label</key>
+			<string>Krzysztof Borek</string>
+			<key>user</key>
+			<string>krzysiek_borek</string>
+		</dict>
+		<dict>
+			<key>cellClass</key>
+			<string>HBTwitterCell</string>
+			<key>initials</key>
 			<string>ZH</string>
 			<key>label</key>
 			<string>ZGMF-X20A</string>
