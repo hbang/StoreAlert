@@ -16,10 +16,6 @@
 
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>Disabilita StoreAlert per le applicazioni affidabili , o per quelle che mostrano la propria conferma Appstore.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>Info</string>
+	<string>Disabilita StoreAlert per le applicazioni affidabili, o per quelle che mostrano la propria conferma Appstore.</string>
 </dict>
 </plist>

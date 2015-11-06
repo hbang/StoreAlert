@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>तुम पर भरोसा क्षुधा के लिए StoreAlert बंद करें, या कि उनके खुद के ऐप स्टोर पुष्टि दिखा।</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>के बारे में</string>
 </dict>
 </plist>
