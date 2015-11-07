@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Message displayed in the alert, informing the user of the source and destination app. -->
+	<key>APP_WANTS_TO_OPEN_APP</key>
+	<string>“%@” vol obrir “%@”.</string>
+
+	<!-- Name used when the app can’t be determined. -->
+	<key>UNKNOWN_APP</key>
+	<string>(Desconegut)</string>
+</dict>
+</plist>

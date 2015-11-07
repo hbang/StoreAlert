@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Label for switch to enable or disable the tweak. -->
+	<key>ENABLED</key>
+	<string>Habilitat</string>
+
+	<!-- Label for switch to enable or disable displaying the URL in the alert. -->
+	<key>SHOW_URL</key>
+	<string>Mostrar enllaç a l’Alerta</string>
+
+	<!-- Button leading to a list of apps to enable or disable showing the alert within. -->
+	<key>DISPLAY_IN</key>
+	<string>Mostrar a:</string>
+
+	<!-- Explanation of the above feature. -->
+	<key>DISPLAY_IN_EXPLANATION</key>
+	<string>Apaga el StoreAlert per apps en què confiïs, o que mostrin la seva pròpia confirmació.</string>
+
+	<!-- Button leading to the About page. -->
+	<key>ABOUT</key>
+	<string>Sobre</string>
+</dict>
+</plist>
