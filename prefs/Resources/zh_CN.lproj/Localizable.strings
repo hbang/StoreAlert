@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 在提示中显示, 通知来源或APP中. -->
+	<key>APP_WANTS_TO_OPEN_APP</key>
+	<string>“%@” 想要打开 “%@”.</string>
+
+	<!-- 不确定APP时使用名称. -->
+	<key>UNKNOWN_APP</key>
+	<string>(未知)</string>
+</dict>
+</plist>

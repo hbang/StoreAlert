@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 启用或禁用插件的开关. -->
+	<key>ENABLED</key>
+	<string>启用</string>
+
+	<!-- 开关来启用或禁用提示中显示的 URL. -->
+	<key>SHOW_URL</key>
+	<string>在提示中显示 URL</string>
+
+	<!-- 提示列表中显示启用或禁用按钮. -->
+	<key>DISPLAY_IN</key>
+	<string>显示</string>
+
+	<!-- 详细说明. -->
+	<key>DISPLAY_IN_EXPLANATION</key>
+	<string>显示您信任的APP或者App Store中下载的APP.</string>
+
+	<!-- 通往关于页面的按钮. -->
+	<key>ABOUT</key>
+	<string>关于</string>
+</dict>
+</plist>
