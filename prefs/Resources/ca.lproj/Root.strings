@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Apaga el StoreAlert per apps en què confiïs, o que mostrin la seva pròpia confirmació.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>Sobre</string>
 </dict>
 </plist>

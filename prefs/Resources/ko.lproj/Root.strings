@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>신뢰하는 앱이나 자체적으로 앱스토어 연결 확인창을 제공하는 앱의 StoreAlert을 끌 수 있습니다.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>정보</string>
 </dict>
 </plist>

@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>Tutup StoreAlert untuk app yang kamu percaya, atau yang mempunyai pengesahan App Store mereka tersendiri.</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>Tentang</string>
 </dict>
 </plist>

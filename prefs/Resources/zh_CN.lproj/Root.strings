@@ -17,9 +17,5 @@
 	<!-- 详细说明. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>显示您信任的APP或者App Store中下载的APP.</string>
-
-	<!-- 通往关于页面的按钮. -->
-	<key>ABOUT</key>
-	<string>关于</string>
 </dict>
 </plist>

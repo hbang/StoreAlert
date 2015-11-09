@@ -2,16 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ABOUT</key>
-	<string>אודות</string>
-	<key>DISPLAY_IN</key>
-	<string>הצג ב</string>
-	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>כבה את StoreAlert עבור אפליקציות שאתה בוטח/ת בהן
-Turn off StoreAlert for apps you trust, or that show their own App Store confirmation.</string>
+	<!-- Label for switch to enable or disable the tweak. -->
 	<key>ENABLED</key>
 	<string>מופעל</string>
+	
+	<!-- Label for switch to enable or disable displaying the URL in the alert. -->
 	<key>SHOW_URL</key>
 	<string>הצג כתובת בהתראה</string>
+
+	<!-- Button leading to a list of apps to enable or disable showing the alert within. -->
+	<key>DISPLAY_IN</key>
+	<string>הצג ב</string>
+
+	<!-- Explanation of the above feature. -->
+	<key>DISPLAY_IN_EXPLANATION</key>
+	<string>כבה את StoreAlert עבור אפליקציות שאתה בוטח/ת בהן.</string>
 </dict>
 </plist>

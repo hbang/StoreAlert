@@ -17,9 +17,5 @@
     <!-- Explanation of the above feature. -->
     <key>DISPLAY_IN_EXPLANATION</key>
     <string>Slå StoreAlert fra for de apps du stoler på eller som viser deres egen App Store advarsel.</string>
-
-    <!-- Button leading to the About page. -->
-    <key>ABOUT</key>
-    <string>Om</string>
 </dict>
 </plist>
