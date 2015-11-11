@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>您所信任的 Apps 可關閉 StoreAlert，或顯示它們自己的 App Store 確認對話框。</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>關於</string>
 </dict>
 </plist>

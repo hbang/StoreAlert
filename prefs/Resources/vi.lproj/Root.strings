@@ -16,10 +16,6 @@
 
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
-	<string>Tắt Thông Báo từ cửa hàng ứng dụng cho các ứng dụng mà bạn tin tưởng, hoặc chỉ cho thấy xác nhận từ Cửa Hàng Ứng Dụng. .</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>About</string>
+	<string>Tắt Thông Báo từ cửa hàng ứng dụng cho các ứng dụng mà bạn tin tưởng, hoặc chỉ cho thấy xác nhận từ Cửa Hàng Ứng Dụng.</string>
 </dict>
 </plist>

@@ -17,9 +17,5 @@
 	<!-- Explanation of the above feature. -->
 	<key>DISPLAY_IN_EXPLANATION</key>
 	<string>信用できるアプリ、又はアプリ内でApp Store承認を表示するアプリでStoreAlertを向こうにします。</string>
-
-	<!-- Button leading to the About page. -->
-	<key>ABOUT</key>
-	<string>詳細</string>
 </dict>
 </plist>
