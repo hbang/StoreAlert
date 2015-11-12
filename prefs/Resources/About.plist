@@ -63,88 +63,16 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openTranslations</string>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>cellClass</key>
+			<string>HBTintedTableCell</string>
 			<key>label</key>
 			<string>TRANSLATORS</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>AR</string>
-			<key>label</key>
-			<string>MiRO</string>
-			<key>user</key>
-			<string>MiRO92</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>DE</string>
-			<key>label</key>
-			<string>Benno Krauss</string>
-			<key>user</key>
-			<string>bensge</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>FI</string>
-			<key>label</key>
-			<string>Arto Mikola</string>
-			<key>user</key>
-			<string>ard0u</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>FR</string>
-			<key>label</key>
-			<string>Hautebas Mathieu</string>
-			<key>user</key>
-			<string>matteyeux</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>NL</string>
-			<key>label</key>
-			<string>Timon Olsthoorn</string>
-			<key>user</key>
-			<string>tmnlsthrn</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>PL</string>
-			<key>label</key>
-			<string>Krzysztof Borek</string>
-			<key>user</key>
-			<string>krzysiek_borek</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>TR</string>
-			<key>label</key>
-			<string>MUS'AB</string>
-			<key>user</key>
-			<string>MusabEnesDost</string>
-		</dict>
-		<dict>
-			<key>cellClass</key>
-			<string>HBTwitterCell</string>
-			<key>initials</key>
-			<string>ZH</string>
-			<key>label</key>
-			<string>ZGMF-X20A</string>
-			<key>user</key>
-			<string>zmfg_x20a</string>
 		</dict>
 		<dict>
 			<key>cell</key>
