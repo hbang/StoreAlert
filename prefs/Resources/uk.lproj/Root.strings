@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Label for switch to enable or disable the tweak. -->
+	<key>ENABLED</key>
+	<string>Увімкнено</string>
+
+	<!-- Label for switch to enable or disable displaying the URL in the alert. -->
+	<key>SHOW_URL</key>
+	<string>Показувати сповіщення про відкриття посилань</string>
+
+	<!-- Button leading to a list of apps to enable or disable showing the alert within. -->
+	<key>DISPLAY_IN</key>
+	<string>Відображати в</string>
+
+	<!-- Explanation of the above feature. -->
+	<key>DISPLAY_IN_EXPLANATION</key>
+	<string>Вимкнути StoreAlert для застосунків, яким ви довіряєте, або ж які мають власне підтвердження в App Store.</string>
+</dict>
+</plist>
