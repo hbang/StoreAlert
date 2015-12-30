@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Label for switch to enable or disable the tweak. -->
+	<key>ENABLED</key>
+	<string>Ativado</string>
+
+	<!-- Label for switch to enable or disable displaying the URL in the alert. -->
+	<key>SHOW_URL</key>
+	<string>Mostrar URL em alerta</string>
+
+	<!-- Button leading to a list of apps to enable or disable showing the alert within. -->
+	<key>DISPLAY_IN</key>
+	<string>Mostrar em</string>
+
+	<!-- Explanation of the above feature. -->
+	<key>DISPLAY_IN_EXPLANATION</key>
+	<string>Desligue os StoreAlerts para aplicativos confiáveis, ou que mostram a própria confirmação de redirecionamento para a AppStore.</string>
+
+	<!-- Button leading to the About page. -->
+	<key>ABOUT</key>
+	<string>Sobre</string>
+</dict>
+</plist>
+
